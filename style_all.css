@@ -64,6 +64,12 @@ ul{
 	border-radius:50%;
 	box-shadow: rgba(73, 88, 105, 0.2) 0px 0px 10px;
 }
+@media screen and (max-width: 768px) {
+	.about_img {
+		 width: 90px;
+		 height: 90px;
+	}
+}
 
 .outer{
 	width:90%;
