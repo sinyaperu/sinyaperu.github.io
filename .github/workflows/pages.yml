@@ -1,11 +1,12 @@
 name: Github Pages
 
-# pushとpullで実行する
 on:
+  # mainにpushで実行する
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  # mainにpullで実行する
+  #pull_request:
+    #branches: [ "main" ]
 
   # 手動実行できるようにする
   workflow_dispatch:
