@@ -75,7 +75,7 @@ ul{
 .outer{
 	max-width: 480px;
 	margin: 0 auto;
-	padding:16px;
+	padding:16px 10px;
 	position: relative;
 	text-align:center;
 	border-radius: 10px;
