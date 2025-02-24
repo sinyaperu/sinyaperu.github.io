@@ -1,0 +1,13 @@
+.about_img {
+	 width: 90px;
+	 height: auto;
+}
+h2{
+	font-size: 14px;
+}
+h3, strong{
+	font-size: 12px;
+}
+p{
+	font-size: 10px;
+}

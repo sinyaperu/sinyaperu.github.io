@@ -27,20 +27,24 @@ body{
 header {
 	vertical-align: middle;
 	text-align: center;
-	padding:32px;
+	padding:24px 24px 0;
 }
 h1{
 	font-family: sacramento;
-	font-size: 35px;
+	font-size: 32px;
 	display: inline-block;
 	margin:0px;
+}
+nav{
+	padding:0 20px;
 }
 
 /*section*/
 
-.s1{height: 20px;}
-.s2{height: 30px;}
-.s3{height: 45px;}
+.space{
+	height: 20px;
+	margin:0;
+}
 
 a{
 	color:#fff;
@@ -51,7 +55,7 @@ ul{
 	list-style:none;
 	display: block;
 }
-.main li{
+li{
 	margin:16px 0;
 	padding:0 20px;
 	word-break: break-all;
@@ -64,12 +68,6 @@ ul{
 	margin:0 auto;
 	border-radius:50%;
 	box-shadow: rgba(73, 88, 105, 0.2) 0px 0px 10px;
-}
-@media screen and (max-width: 768px) {
-	.about_img {
-		 width: 90px;
-		 height: auto;
-	}
 }
 
 .outer{
@@ -87,7 +85,7 @@ ul{
 	background-color:transparent;
 	box-shadow:none;
 }
-.main h2{
+h2{
 	font-size: 16px;
 	font-weight: 900;
 	letter-spacing: 1px;
@@ -100,12 +98,12 @@ ul{
 	width:95%;
 	margin:0 auto;
 }
-.main h3, .main strong{
+h3, strong{
 	font-size: 14px;
 	font-weight: 900;
 	margin:16px 0;
 }
-.main p{
+p{
 	font-size: 12px;
 	text-align:center;
 	width:fit-content;
