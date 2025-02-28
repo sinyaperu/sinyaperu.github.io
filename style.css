@@ -74,7 +74,7 @@ li{
 	width:100px;
 	height:auto;
 	margin:0 auto;
-	box-shadow: rgba(73, 88, 105, 0.2) 0px 0px 10px;
+	filter: drop-shadow(0 0 10px rgba(73, 88, 105, 0.2));
 }
 
 .outer{
