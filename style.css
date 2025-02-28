@@ -69,14 +69,6 @@ li{
 	word-break: break-all;
 }
 
-.about_img{
-	display:block;
-	width:100px;
-	height:auto;
-	margin:0 auto;
-	filter: drop-shadow(0 0 10px rgba(73, 88, 105, 0.2));
-}
-
 .outer{
 	max-width: 480px;
 	margin: 0 auto;

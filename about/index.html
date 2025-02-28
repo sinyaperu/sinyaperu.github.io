@@ -9,13 +9,25 @@
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 	<link rel="stylesheet" href="../style.css">
 	<link rel="stylesheet" href="../style_s.css" media="screen and (max-width:500px)">
-	<link rel="stylesheet" href="../style_m.css" media="screen and (min-width:500px) and (max-width:1200px)">
 	
 	<script src="../scroll.js"></script>
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&family=Sacramento&display=swap" rel="stylesheet">
+
+	<style>
+		.icon{
+			display:block;
+			width:100px;
+			height:auto;
+			margin:0 auto;
+			filter: drop-shadow(0 0 10px rgba(73, 88, 105, 0.2));
+		}
+		@media screen and (max-width:500px){
+			.icon{width:80px;}
+		}
+	</style>
 </head>
 	
 <body>
@@ -36,10 +48,9 @@
 	</div>
 </nav>
 
-
 <section id="about"><ul>
 	<li>
-		<img class="about_img" src="../img/dot.png">
+		<img class="icon" src="../img/dot.png">
 		<div class="outer none">
 			<h2 class="line">/*pale / 深夜ぺる</h2>
 			<div class=inner>
