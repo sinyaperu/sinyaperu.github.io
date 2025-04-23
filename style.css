@@ -4,10 +4,14 @@
 	padding: 0;
 }
 
+:root {
+  --text-line-color: #000000;
+}
+
 body{
 	font-family: "M PLUS 1p", sans-serif;
 	font-weight: 800;
-	color:#000000;
+	color:var(--text-line-color);
 	width:100%;
 	padding:0;
 	margin:0;
@@ -69,7 +73,7 @@ nav{
 }
 
 a{
-	color:#000000;
+	color:var(--text-line-color);
 	text-decoration: none;
 }
 
@@ -159,13 +163,13 @@ p{
 /*line*/
 
 .line{
-	border-top: solid #fff 1px;
-	border-bottom: solid #fff 1px;
+	border-top: solid var(--text-line-color) 1px;
+	border-bottom: solid var(--text-line-color) 1px;
 }
 
 .line_single{
 	margin:0px auto;
-	border-bottom: solid #fff 1px;
+	border-bottom: solid var(--text-line-color) 1px;
 }
 
 .line_text{
@@ -177,7 +181,7 @@ p{
 	width: 53.5%;
 	height: 1px;
 	content: "";
-	background-color: #fff;
+	background-color: var(--text-line-color);
 	position: absolute;
 	bottom: 5%;
 	transform: scale(0, 1);
