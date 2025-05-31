@@ -3,18 +3,15 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>/*pale - GUIDELINE</title>
+	<title>Midnight Pale - GUIDELINE</title>
 	<link rel="icon" href="../img/dot.png">
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../style.css">
-	<link rel="stylesheet" href="../style_s.css" media="screen and (max-width:500px)">
-	
-	<script src="../scroll.js"></script>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&family=Sacramento&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
@@ -22,32 +19,25 @@
 
 <div class="bg"></div>
 
-<header>
-	<h1>/*pale</h1>
-</header>
-
-<nav>
-	<div class="outer none">
-		<h2 class="line">
-			<a class="line_text" href="../about">ABOUT</a> / 
-			<a class="line_text" href="../links">LINKS</a> / 
-			<a class="line_text" href="#">GUIDELINES</a>
-		</h2>
-	</div>
-</nav>
+<header id="header"></header>
+<script>
+	// Pure JS Load XHR
+	var header = new XMLHttpRequest();
+	header.onreadystatechange = function() {
+		if ((header.readyState === 4) && (header.status === 200)) {
+			document.getElementById("header").innerHTML = header.responseText; // 挿入先ID
+			// ロード後の処理を記述
+		}
+	}
+	header.open("GET", "../header.html", true);	// 元URL 
+	header.send(null);
+</script>
 
 <section id="guide"><ul>
-	<li class=space></li>
 	<li><div class="outer">
 		<h2 class="line">オリジナル作品</h2>
 		<div class=inner>
 			<!--
-			<p>
-				Skeb作品については、Skebの規定に基づき<br>
-				「オリジナル作品」とします
-			</p>
-			<div class="line_single"></div>
-			-->
 			<h3>OK</h3>
 			<p>
 				健全な二次創作・FA<br>
@@ -58,81 +48,40 @@
 			<p>
 				R18・R18Gの二次創作<br>
 				無断転載・無断使用・自作発言<br>
-				プロフィール画像への使用<br>
+
 				AI学習・迷惑行為<br>
+			</p>
+			<div class="line_single"></div>
+			-->
+			<p>
+				基本的には個人の判断にお任せいたします<br>
+				最低限のマナーを守ってください
 			</p>
 			<div class="line_single"></div>
 			<p>
 				判断に迷うときは<br>
-				<a class="link" href="https://marshmallow-qa.com/egzuta3qt7elzt0" target="_blank" style="text-decoration: underline;">
-					マシュマロ
-				</a>
+				<a target="_blank" href="https://www.nicovideo.jp/user/133124831/mylist/76821937">wavebox</a>
 				にて質問をお願いします
 			</p>
 		</div>
 	</div></li>
-	<li><div class="outer">
-		<h2 class="line">二次創作作品</h2>
-		<div class=inner>
-			<p>
-				基本はオリジナル作品と統一です<br>
-				公式ガイドラインの遵守をお願いします
-			</p>
-		</div>
-	</div></li>
-	<!--
-	<li><div class="outer">
-		<h2 class="line">依頼作品</h2>
-		<div class=inner>
-			<h3>OK</h3>
-			<p>
-				公開しない個人利用・保存
-			</p>
-			<div class="line_single"></div>
-			<h3>NG</h3>
-			<p>
-				二次創作<br>
-				無断転載・無断使用・自作発言<br>
-				プロフィール画像への使用<br>
-				AI学習・迷惑行為<br>
-			</p>
-			<div class="line_single"></div>
-			<p>
-				ご依頼主様が定める許可・禁止事項があれば<br>
-				そちらを優先してください
-			</p>
-		</div>
-	</div></li>
-	<li><div class="outer">
-		<h2 class="line">Twitch配信</h2>
-		<div class=inner>
-			<p>
-				メン限、アーカイブメン限を含む
-			</p>
-			<div class="line_single"></div>
-			<h3>OK</h3>
-			<p>
-				切り抜き・スクリーンショットのSNSへの投稿
-			</p>
-			<div class="line_single"></div>
-			<h3>NG</h3>
-			<p>
-				無断転載・無断使用・自作発言<br>
-				プロフィール画像への使用<br>
-				AI学習・迷惑行為<br>
-			</p>
-		</div>
-	</div></li>
-	-->
+
+	
 </ul></section>
 
-<footer><ul>
-	<li><div class="outer none">
-		<p style="text-align:center;font-size:10px;filter: drop-shadow(0 0 10px rgba(73, 88, 105, 0.5));">
-			Copyright &copy; */pale All Rights Reserved.
-		</p>
-	</div></li>
-</ul></footer>
+<footer id="footer"></footer>
+<script>
+	// Pure JS Load XHR
+	var footer = new XMLHttpRequest();
+	footer.onreadystatechange = function() {
+		if ((footer.readyState === 4) && (footer.status === 200)) {
+			document.getElementById("footer").innerHTML = footer.responseText; // 挿入先ID
+			// ロード後の処理を記述
+		}
+	}
+	footer.open("GET", "../footer.html", true);	// 元URL 
+	footer.send(null);
+</script>
 
 
 </body>
