@@ -1,0 +1,83 @@
+--track0:Track1,-1000,1000,0,0.01
+--track1:Track2,-1000,1000,0,0.01
+--track2:Track3,-1000,1000,0,0.01
+--track3:FRAME,0,1000,10,1
+--check0:個別 / ｸﾞﾙｰﾌﾟ,0
+--dialog:Track,local tra={"ox","oy","zoom"};Select,local sel={1};└─ Shift,local shf=0;Pattern,local pat=0;All/chk,local all=1;
+
+-- https://github.com/sinyaperu/AviUtl_peru
+
+--[[
+	[FRAME]
+		カクカクするフレーム数
+	[個別/ｸﾞﾙｰﾌﾟ]
+		まんま
+	[Track] 操作する値を指定(obj内のタグの名前)
+		"ox" : x座標
+		"oy" : y座標
+		"oz" : z座標
+		"rx" : x回転
+		"ry" : y回転
+		"rz" : z回転
+		"zoom" : 拡大率
+	[Select] 文字を指定
+		[Pattern]:0の場合、1番目の数のみ使用
+	[Pattern] 文字選択の方法を指定
+		0:[Select]で指定した文字数ごとに対象
+		1:[Select]で指定した文字のみが対象
+	[All]非選択文字に正負を逆にした値を適用するか指定
+	[グループ制御] [個別/ｸﾞﾙｰﾌﾟ]有効時のみ
+		グループ制御を設置したレイヤー番号を入力することで、
+		「グループ制御からn個下」と相対的に指定できるようになる
+]]
+
+local ind=0
+if obj.check0 then
+	ind=obj.layer-shf-1
+else
+	ind=obj.index
+end
+
+if #sel==0 then 
+	if sel and sel~=0 then
+		sel={sel}
+	else
+		sel={1}
+	end
+end
+
+local pattern=function()
+	if pat==0 then
+		return math.floor(ind/sel[1])%2==0
+	elseif pat==1 then
+		for i=1,#sel do
+			if sel[i]+0==ind+1 then
+				return true
+			end
+		end
+		return false
+	end
+end
+
+--judgment
+local jud=function()
+	local ALL = all==1 and -1 or 0
+	if obj.track3>0 then
+		local FRAME=true
+		if obj.track3~=0 then
+			FRAME=math.floor(obj.frame/obj.track3)%2==0
+		end
+		return (pattern() and 1 or ALL)*(FRAME and 1 or -1)
+	end
+	return (pattern() and 1 or ALL)
+end
+
+local track={obj.track0,obj.track1,obj.track2}
+
+for i=1,3 do
+	if tra[i]~="zoom" then
+		obj[tra[i]] = obj[tra[i]]+track[i]*jud()
+	else
+		obj.zoom=obj.zoom+(track[i])/100*jud()
+	end
+end

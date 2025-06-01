@@ -1,0 +1,80 @@
+--track0:ｱﾝｶｰ数,3,16,4,1
+--track1:ズレ幅,0,1000,0,0.01
+--track2:FRAME,1,1000,10,1
+--dialog:Color/col,local col=0xffffff;ズレ除外,local sel={};└─ ｱﾝｶｰ番号表示/chk,local chk2=0;seed*-1/chk,local chk1=0;中心に移動/chk,local cen=0;ｱﾝｶｰ座標,pos={-100,-100,100,-100,100,100,-100,100};
+
+-- https://github.com/sinyaperu/AviUtl_peru
+
+--[[
+	[ズレ幅] ズレの幅を指定
+	[FRAME] 何フレーム毎にズレるか指定
+	[ズレ除外] ズレを適用しない点を番号で指定
+	[seed*-1] 説明むずかしい
+		ズレの値を乱数で出すときのシード値(アンカー番号)を負の数にすることで、異なるオブジェクトでも同じ値が返されるようにします
+	[中心に移動]
+		余白を削った場合の中心が中心になるよう移動します
+		厳密に言えば、もともと中心が中心となるように(?)描画してアンカーに合わせてずらしているのですが、それを無効にします
+		アンカーの位置は変わらないので注意
+]]
+
+--[[
+
+	crdの構造
+	crd={1,2,3,4,中心x,中心y}
+]]
+
+local dp=function(x0,y0,x1,y1,x2,y2,x3,y3,t)
+	--参考 -> mina様「雑縁取り.anm」
+	obj.drawpoly(x0-t[5],y0-t[6],0,x1-t[5],y1-t[6],0,x2-t[5],y2-t[6],0,x3-t[5],y3-t[6],0)
+end
+
+local func={
+	function(v,t) return math.abs(t[v][#t[v]]-t[v][1]) end,
+	function(v,t) return (t[v][#t[v]]+t[v][1])/2 end,
+	function(v,t) for i=1,#t do if t[i]==v then return false end end return true end
+}
+
+local arg=function(t,v1,v2)
+	if (func[3](v1,t) and gap1==1) then
+		return pos[v1*2-(v2 or 0)]+obj.rand(math.abs(gap2)*-1,math.abs(gap2),(v1*2-(v2 or 0))*(chk1==1 and -1 or 1),math.floor(obj.frame/fra))
+	else
+		return pos[v1*2-(v2 or 0)]
+	end
+end
+
+local num=obj.track0
+local num
+
+if type(sel)=="number" then sel={sel} end
+local minmax=math.abs(gap2)*2
+if next(pos)==nil then pos={-100,-100,100,-100,100,100,-100,100} end
+for i=1,num do if not(pos[i*2-1] and pos[i*2]) then pos[i*2-1],pos[i*2]=0,0 end end
+for i=1,#pos do if i%2==1 then crd[1][#crd[1]+1]=pos[i] else crd[2][#crd[2]+1]=pos[i] end end
+table.sort(crd[1])
+table.sort(crd[2])
+crd[3],crd[4],crd[5],crd[6]=func[1](1,crd)+minmax,func[1](2,crd)+minmax,func[2](1,crd),func[2](2,crd)
+
+obj.setanchor("pos",num,"loop")
+obj.setoption("drawtarget","tempbuffer",crd[3],crd[4])
+obj.setoption("blend","alpha_add")
+obj.load("figure","四角形",col,1)
+
+for i=1,num-1 do
+	dp(arg(sel,i,1),arg(sel,i),arg(sel,i+1,1),arg(sel,i+1),0,0,0,0,crd)
+end
+dp(arg(sel,num,1),arg(sel,num),arg(sel,1,1),arg(sel,1),0,0,0,0,crd)
+
+if chk2==1 then
+	obj.setfont("",32,3,0xffffff,0x000000)
+	for i=1,(#pos)/2 do
+		obj.load("text",i)
+		obj.draw(pos[i*2-1]-crd[5],pos[i*2]-crd[6])
+	end
+end
+
+pos=nil
+obj.copybuffer("obj","tmp")
+if cen==0 then
+	obj.cx=obj.cx-crd[5]
+	obj.cy=obj.cy-crd[6]
+end
