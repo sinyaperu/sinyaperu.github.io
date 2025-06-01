@@ -134,6 +134,23 @@ p{
 	width:fit-content;
 	margin: 0px auto;
 }
+table{
+	width:fit-content;
+	margin: 0px auto;
+	border-spacing: 5px;
+}
+table p{
+	margin:0;
+	text-align:left;
+}
+th,td{
+	text-align:center;
+	padding:0 5px;	
+}
+th{
+	border-right: solid var(--line-color) 1px;
+	font-weight: 800;
+}
 
 @media screen and (max-width:500px){
 
