@@ -129,15 +129,21 @@ h3, strong{
 	margin:16px 0;
 }
 p{
-	font-size: 12px;
+	font-size: 13px;
 	text-align:center;
 	width:fit-content;
 	margin: 0px auto;
 }
+
 table{
 	width:fit-content;
 	margin: 0px auto;
 	border-spacing: 0 5px;
+}
+table p{
+	margin:0;
+	text-align:left;
+	font-weight: 800;
 }
 th,td{
 	text-align:center;
@@ -146,25 +152,19 @@ th,td{
 th{
 	border-right: solid var(--line-color) 1px;
 }
-table p{
-	margin:0;
-	text-align:left;
-	font-weight: 800;
-}
-
 @media screen and (max-width:500px){
 
 	.icon{
 		width:80px;
 	}
 	h2{
-		font-size: 14px;
+		font-size: 15px;
 	}
 	h3, strong{
-		font-size: 12px;
+		font-size: 13px;
 	}
 	p{
-		font-size: 10px;
+		font-size: 11px;
 	}
 	
 }
