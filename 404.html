@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Midnight Pale - 404</title>
+	<link rel="icon" href="../img/dot.png">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&family=Sacramento&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<header id="header"></header>
+<script>
+	// Pure JS Load XHR
+	var header = new XMLHttpRequest();
+	header.onreadystatechange = function() {
+		if ((header.readyState === 4) && (header.status === 200)) {
+			document.getElementById("header").innerHTML = header.responseText; // 挿入先ID
+			// ロード後の処理を記述
+		}
+	}
+	header.open("GET", "../header.html", true);	// 元URL 
+	header.send(null);
+</script>
+
+<section id="404"><ul>
+	<li><div class="outer">
+		<h2 class="line">404</h2>
+		<div class=inner>
+			<p>
+				ファイルが見つかりませんでした。<br>
+				<a href="https://sinyaperu.github.io">トップに戻る</a>
+			</p>
+		</div>
+	</div></li>
+
+</ul></section>
+
+<footer id="footer"></footer>
+<script>
+	// Pure JS Load XHR
+	var footer = new XMLHttpRequest();
+	footer.onreadystatechange = function() {
+		if ((footer.readyState === 4) && (footer.status === 200)) {
+			document.getElementById("footer").innerHTML = footer.responseText; // 挿入先ID
+			// ロード後の処理を記述
+		}
+	}
+	footer.open("GET", "../footer.html", true);	// 元URL 
+	footer.send(null);
+</script>
+
+
+
+</body>
+
+</html>
