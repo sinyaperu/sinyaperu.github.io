@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap');
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -8,6 +10,14 @@
 	--text-color: rgba(0,0,0,0.8);
 	--line-color: rgba(0,0,0,0.4);
 	--link-color: #8FA7BC;
+	
+	--small-size:        13px;
+	--small-strong-size: 15px;
+	--text-size:         14px;
+	--text-strong-size:  16px;
+
+	--text-weight  : 800;
+	--strong-weight: 00;
 }
 
 ::selection {
@@ -16,7 +26,7 @@
 	
 body{
 	font-family: "M PLUS 1p", sans-serif;
-	font-weight: 800;
+	font-weight: var(--text-weight);
 	color:var(--text-color);
 	width:100%;
 	padding:0;
@@ -110,8 +120,8 @@ li{
 	box-shadow:none;
 }
 h2{
-	font-size: 16px;
-	font-weight: 900;
+	font-size: var(--text-strong-size);
+	font-weight: var(--strong-weight);
 	letter-spacing: 1px;
 	width:95%;
 	text-align: center;
@@ -123,13 +133,16 @@ h2{
 	margin:10px auto 0;
 
 }
-h3, strong{
-	font-size: 14px;
-	font-weight: 900;
-	margin:16px 0;
+h3{
+	font-size: var(--text-size);
+	font-weight: var(--strong-weight);
+	margin:8px 0;
+}
+strong{
+	color:var(--link-color);
 }
 p{
-	font-size: 13px;
+	font-size: var(--text-size);
 	text-align:center;
 	width:fit-content;
 	margin: 0px auto;
@@ -143,7 +156,7 @@ table{
 table p{
 	margin:0;
 	text-align:left;
-	font-weight: 800;
+	font-weight: var(--text-weight);;
 }
 th,td{
 	text-align:center;
@@ -158,13 +171,10 @@ th{
 		width:80px;
 	}
 	h2{
-		font-size: 15px;
+		font-size: var(--small-strong-size);
 	}
-	h3, strong{
-		font-size: 13px;
-	}
-	p{
-		font-size: 11px;
+	h3,p{
+		font-size: var(--small-size);
 	}
 	
 }
